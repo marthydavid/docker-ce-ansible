@@ -1,0 +1,25 @@
+---
+# tasks file for common
+
+- name: remove everything
+  yum:
+    name: {{ item.name }} remove docker docker-common docker-selinux docker-engine
+    state: {{ item.state }}
+  with_items:
+    - {{ remove_things }}
+
+- name: install stuff
+  yum:
+    name: {{ item.name }}
+    state: {{ item.state }}
+  with_items:
+    - {{ prerquisite_for_repo }}
+
+- name: configure repo
+  command: yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+
+- name: install docker-ce
+  yum:
+    name: docker-ce
+    state: present
+
