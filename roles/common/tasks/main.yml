@@ -28,7 +28,7 @@
   when: install_docker_ce is defined
 
 - name: start docker service
-  systemctl:
+  systemd:
     name: docker
     state: started
     enabled: true
