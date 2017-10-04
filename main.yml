@@ -1,6 +1,6 @@
 ---
 
-- hosts: test
+- hosts: devenv
   become: yes
   roles:
     - common
