@@ -3,7 +3,7 @@
 remove_things:
   - { name: 'docker', state: 'absent' }
   - { name: 'docker-common', state: 'absent' }
-  - { name: 'docker-selinux, state: absent' }
+  - { name: 'docker-selinux', state: 'absent' }
   - { name: 'docker-engine', state: 'absent' }
 
 prerequisite_for_repo:
