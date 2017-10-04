@@ -3,8 +3,9 @@
 
 - name: remove everything
   yum:
-    name: {{ item.name }} remove docker docker-common docker-selinux docker-engine
+    name: {{ item.name }}
     state: {{ item.state }}
+  when: uninstall_everything is defined
   with_items:
     - {{ remove_things }}
 
@@ -13,13 +14,15 @@
     name: {{ item.name }}
     state: {{ item.state }}
   with_items:
-    - {{ prerquisite_for_repo }}
-
+    - {{ prerequisite_for_repo }}
+  when: prereq_install is defined
+  
 - name: configure repo
   command: yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+  when: configure_repo is defined
 
 - name: install docker-ce
   yum:
     name: docker-ce
     state: present
-
+  when: install_docker_ce is defined
