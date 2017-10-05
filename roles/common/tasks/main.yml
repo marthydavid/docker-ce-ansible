@@ -25,13 +25,11 @@
   yum:
     name: docker-ce
     state: present
+  notify:
+    - start docker    
   when: install_docker_ce is defined
   register: docker_ce_installed
 
-- name: start docker service
-  notify:
-    - start docker
-  when: docker_ce_installed.changed == true
-  
 - name: add user to docker group
   command: usermod -aG docker {{ ansible_user }}
+  when: docker_ce_installed.changed == true
