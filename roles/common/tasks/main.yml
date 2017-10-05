@@ -48,4 +48,7 @@
     - "{{ yum_bash_completion }}"
 
 - name: add bash completion
-  command: curl -L https://raw.githubusercontent.com/docker/docker-ce/master/components/cli/contrib/completion/bash/docker -o /etc/bash_completion.d/docker
+  get_url: 
+    url: https://raw.githubusercontent.com/docker/docker-ce/master/components/cli/contrib/completion/bash/docker
+    dest: /etc/bash_completion.d/docker
+    mode: 0644
