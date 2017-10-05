@@ -1,5 +1,8 @@
 ---
 # vars file for common
+yum_epel_release:
+  - { name: 'epel-release', state: 'latest'}
+
 remove_things:
   - { name: 'docker', state: 'absent' }
   - { name: 'docker-common', state: 'absent' }
@@ -10,3 +13,7 @@ prerequisite_for_repo:
   - { name: 'yum-utils', state: 'present' }
   - { name: 'device-mapper-persistent-data', state: 'present' }
   - { name: 'lvm2', state: 'present' }
+
+yum_bash_completion:
+  - { name: 'bash-completion', state: 'present'}
+  - { name: 'bash-completion-extra', state: 'present'}

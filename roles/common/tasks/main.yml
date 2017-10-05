@@ -1,5 +1,11 @@
 ---
 # tasks file for common
+- name: install epel release
+  yum: "{{ item.name }}"
+  state: "{{ item.state }}"
+  when: uninstall_everything is defined
+  with_items:
+    - "{{ yum_epel_release }}"
 
 - name: remove everything
   yum:
@@ -34,5 +40,12 @@
   command: usermod -aG docker {{ ansible_user }}
   when: docker_ce_installed.changed == true
 
-- name: add bash completition
+- name: add bash_completion package
+  yum:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  with_items:
+    - "{{ yum_bash_completion }}"
+
+- name: add bash completion
   command: curl -L https://raw.githubusercontent.com/docker/docker-ce/master/components/cli/contrib/completion/bash/docker -o /etc/bash_completion.d/docker
