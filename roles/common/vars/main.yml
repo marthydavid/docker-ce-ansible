@@ -16,4 +16,4 @@ prerequisite_for_repo:
 
 yum_bash_completion:
   - { name: 'bash-completion', state: 'present'}
-  - { name: 'bash-completion-extra', state: 'present'}
+  - { name: 'bash-completion-extras', state: 'present'}
