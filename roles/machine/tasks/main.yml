@@ -1,2 +1,8 @@
 ---
 # tasks file for machine
+
+- name: install docker machine
+  command: curl -L https://github.com/docker/machine/releases/download/v0.12.2/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine && chmod +x /tmp/docker-machine &&  cp /tmp/docker-machine /usr/local/bin/docker-machine
+
+- name: install bash completition
+  command: curl -L https://raw.githubusercontent.com/docker/machine/master/contrib/completion/bash/docker-machine-prompt.bash -o /etc/bash_completion.d/docker-machine-prompt  && curl -L https://raw.githubusercontent.com/docker/machine/master/contrib/completion/bash/docker-machine-wrapper.bash -o /etc/bash_completition.d/docker-machine-wrapper && curl -L https://github.com/docker/machine/raw/master/contrib/completion/bash/docker-machine.bash -o /etc/bash_completion.d/docker-machine

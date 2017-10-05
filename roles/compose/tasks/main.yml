@@ -1,2 +1,7 @@
 ---
 # tasks file for compose
+- name: install compose
+  command: curl -L https://github.com/docker/compose/releases/download/1.16.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose &&  chmod +x /usr/local/bin/docker-compose
+
+- name: install bash_completion
+  command: curl -L https://raw.githubusercontent.com/docker/compose/1.16.1/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose

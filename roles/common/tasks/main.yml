@@ -33,3 +33,6 @@
 - name: add user to docker group
   command: usermod -aG docker {{ ansible_user }}
   when: docker_ce_installed.changed == true
+
+- name: add bash completition
+  command: sudo curl -L https://raw.githubusercontent.com/docker/docker-ce/master/components/cli/contrib/completion/bash/docker -o /etc/bash_completion.d/docker
