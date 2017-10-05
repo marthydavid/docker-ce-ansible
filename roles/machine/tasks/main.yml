@@ -2,7 +2,7 @@
 # tasks file for machine
 
 - name: install docker machine
-  command: 'curl -L https://github.com/docker/machine/releases/download/v0.12.2/docker-machine-`uname -s`-`uname -m` >/usr/local/bin/docker-machine'
+  command: 'curl -L https://github.com/docker/machine/releases/download/v0.12.2/docker-machine-Linux-x86_64 >/usr/local/bin/docker-machine'
   
 - name: make executable  
   command: 'chmod +x /usr/local/bin/docker-machine'
