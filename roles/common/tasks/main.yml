@@ -26,12 +26,12 @@
     name: docker-ce
     state: present
   when: install_docker_ce is defined
+  register: docker_ce_installed
 
 - name: start docker service
-  systemd:
-    name: docker
-    state: started
-    enabled: true
-
+  notify:
+    - start docker
+  when: docker_ce_installed.changed == true
+  
 - name: add user to docker group
   command: usermod -aG docker {{ ansible_user }}
