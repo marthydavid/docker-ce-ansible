@@ -16,7 +16,7 @@
 - name: install bash completion 2  
   get_url:
     url: https://raw.githubusercontent.com/docker/machine/master/contrib/completion/bash/docker-machine-wrapper.bash
-    dest: /etc/bash_completition.d/docker-machine-wrapper
+    dest: /etc/bash_completion.d/docker-machine-wrapper
     mode: 0644
 
 - name: install bash completion 3  
