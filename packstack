@@ -1,0 +1,22 @@
+sudo systemctl disable firewalld
+sudo systemctl stop firewalld
+sudo systemctl disable NetworkManager
+sudo systemctl stop NetworkManager
+sudo systemctl enable network
+sudo systemctl start network
+sudo yum install -y centos-release-openstack-pike
+sudo yum update -y
+sudo yum install -y yum-utils
+sudo yum-config-manager --enable openstack-pike
+sudo yum install -y openstack-packstack
+time packstack --answer-file=/home/marth/answer.txt
+
+neutron net-create external_network --provider:network_type flat --provider:physical_network extnet  --router:external && \
+neutron subnet-create --name public_subnet --enable_dhcp=False --allocation-pool=start=192.168.1.200,end=192.168.1.240 --gateway=192.168.1.1 external_network 192.168.1.0/24
+
+curl -O http://cloud.centos.org/centos/7/images/CentOS-7-x86_64-GenericCloud-1708.qcow2
+curl -O https://cloud-images.ubuntu.com/xenial/current/xenial-server-cloudimg-amd64-disk1.img
+wget https://download.fedoraproject.org/pub/fedora/linux/releases/26/CloudImages/x86_64/images/Fedora-Cloud-Base-26-1.5.x86_64.qcow2
+
+glance --os-image-api-version 2 image-create --name 'CentOS-7-x86_64' --disk-format qcow2 --container-format bare --file CentOS-7-x86_64-GenericCloud-1708.qcow2
+glance --os-image-api-version 2 image-create --name 'Fedora-26-x86_64' --disk-format qcow2 --container-format bare --file Fedora-Cloud-Base-26-1.5.x86_64.qcow2
