@@ -7,6 +7,13 @@
   with_items:
     - "{{ yum_epel_release }}"
 
+- name: stop docker
+  systemd:
+    name: docker
+    state: stopeed
+    enabled: false
+  when: uninstall_everything is defined
+
 - name: remove everything
   yum:
     name: "{{ item.name }}"
@@ -52,3 +59,9 @@
     url: https://raw.githubusercontent.com/docker/docker-ce/master/components/cli/contrib/completion/bash/docker
     dest: /etc/bash_completion.d/docker
     mode: 0644
+
+- name: start docker
+  systemd:
+    name: docker
+    state: started
+    enabled: yes
