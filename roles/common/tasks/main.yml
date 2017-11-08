@@ -14,14 +14,14 @@
   with_items:
     - "{{ prerequisite_for_repo }}"
 
-- name: stat docker-ce.repo
+- name: stat docker-cerepo
   stat:
     path: /etc/yum.repos.d/docker-ce.repo
   register: docker-ce
 
 - name: configure repo
   command: yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-  when: docker-ce.stat.exists == False
+  when: docker-ce.stat.notexists 
 
 - name: install docker-ce
   yum:
