@@ -4,5 +4,5 @@
   become: yes
   roles:
     - common
-    - compose
-    - machine
+    - { role: compose, when: compose is defined }
+    - { role: machine, when: machine is defined }
