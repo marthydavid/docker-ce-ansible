@@ -1,0 +1,9 @@
+remove_things:
+  - { name: 'docker', state: 'absent' }
+  - { name: 'docker-common', state: 'absent' }
+  - { name: 'docker-selinux', state: 'absent' }
+  - { name: 'docker-engine', state: 'absent' }
+
+remove_things2:
+  - { path: /usr/local/bin/docker-compose}
+  - { path: /usr/local/bin/docker-machine}

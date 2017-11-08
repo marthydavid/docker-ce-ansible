@@ -1,0 +1,23 @@
+---
+
+- name: stop docker
+  systemd:
+    name: docker
+    state: stopeed
+    enabled: false
+  when: uninstall_everything is defined
+
+- name: remove everything
+  yum:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  when: uninstall_everything is defined
+  with_items:
+    - "{{ remove_things }}"
+
+- name: remove everything_2
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  with_items:
+    - "{{ remove_things2 }}"
