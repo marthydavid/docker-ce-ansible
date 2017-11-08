@@ -3,7 +3,7 @@
 - name: stop docker
   systemd:
     name: docker
-    state: stopeed
+    state: stopped
     enabled: false
 
 - name: remove everything
