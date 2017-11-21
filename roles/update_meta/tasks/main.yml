@@ -35,10 +35,10 @@
     nics:
       - net-id: af026aac-5d4f-40aa-9e83-c451802815f6
     meta:
-      depl: docker
+      depl: "docker"
       hostname: "{{ ansible_hostname}}.marthyhome.lab"
-      docker: agent
-      free: true
+      docker: "agent"
+      free: "true"
     userdata:
       #cloud-config
       hostname: '{{ ansible_hostname }}'
