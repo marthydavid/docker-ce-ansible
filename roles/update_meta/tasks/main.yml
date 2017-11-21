@@ -38,6 +38,7 @@
       depl: docker
       hostname: "{{ ansible_hostname}}.marthyhome.lab"
       docker: agent
+      free: true
     userdata:
       #cloud-config
       hostname: '{{ ansible_hostname }}'
