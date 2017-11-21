@@ -1,6 +1,6 @@
 ---
 
-- hosts: all
+- hosts: meta-depl_docker
   become: yes
   roles:
     - { role: set_facts}
