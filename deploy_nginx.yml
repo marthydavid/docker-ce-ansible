@@ -3,4 +3,4 @@
 - hosts: meta-free_true
   roles:
     - { role: create-nginx}
-    - { role: update-meta }
+    - { role: update_meta }
