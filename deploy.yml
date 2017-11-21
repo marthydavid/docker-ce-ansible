@@ -6,4 +6,4 @@
     - { role: compose, become: yes}
     - { role: machine, become: yes}
     - { role: hello_world, become: yes}
-    - { role: update_meta, free_var: "true"}
+    - { role: update_meta, free_var="true"}
