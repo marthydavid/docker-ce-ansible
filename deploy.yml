@@ -7,7 +7,4 @@
     - { role: compose}
     - { role: machine}
     - { role: hello_world}
-
-- hosts: localhost
-  roles:
     - { role: update_meta}
