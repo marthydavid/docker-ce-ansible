@@ -2,6 +2,11 @@
 
 - name: Update meta for host
   os_server:
+    auth:
+      auth_url: http://192.168.1.100:5000/v2.0/
+      username: demo
+      password: Almafa12
+      project_name: demo
     name: '{{ ansible_hostname }}'
     image: 0ed374b2-4fde-4076-a9ed-91e180ab3694
     meta:
