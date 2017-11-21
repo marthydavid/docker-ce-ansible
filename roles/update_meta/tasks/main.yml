@@ -1,6 +1,21 @@
 ---
+#
+#- name: Update meta for host
+#  delegate_to: localhost
+#  os_server:
+#    auth:
+#      auth_url: http://192.168.1.100:5000/v2.0/
+#      username: demo
+#      password: Almafa12
+#      project_name: demo
+#    name: 
+#    image: 
+#    meta:
+#      depl: docker
+#      docker: agent
+#      hostname: "{{ ansible_hostname}}.marthyhome.lab"
 
-- name: Update meta for host
+- name: update metadata
   delegate_to: localhost
   os_server:
     auth:
@@ -8,9 +23,21 @@
       username: demo
       password: Almafa12
       project_name: demo
+    state: present
     name: '{{ ansible_hostname }}'
     image: 0ed374b2-4fde-4076-a9ed-91e180ab3694
+    key_name: MARTHY-T430
+    wait: yes
+    flavor: 8a27537c-e5d2-4430-a7be-e18ee94a8c97
+    floating_ips: 
+      - 192.168.1.206
+    security_groups: default
+    nics:
+      - net-id: af026aac-5d4f-40aa-9e83-c451802815f6
     meta:
       depl: docker
-      docker: agent
       hostname: "{{ ansible_hostname}}.marthyhome.lab"
+      docker: agent
+    userdata:
+      #cloud-config
+      hostname: '{{ ansible_hostname }}'
