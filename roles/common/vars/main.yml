@@ -8,6 +8,7 @@ prerequisite_for_repo:
   - { name: 'yum-utils', state: 'present' }
   - { name: 'device-mapper-persistent-data', state: 'present' }
   - { name: 'lvm2', state: 'present' }
+  - { name: 'python-docker-py', state: 'present' }
 
 yum_bash_completion:
   - { name: 'bash-completion', state: 'present'}

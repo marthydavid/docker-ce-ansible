@@ -1,0 +1,8 @@
+---
+
+- name: Hello World
+  docker_container:
+    name: hello_world_test
+    image: hello-world
+    
+
