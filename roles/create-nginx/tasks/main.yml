@@ -1,0 +1,8 @@
+---
+
+- name: Hello World
+  docker_container:
+    name: nginx-test
+    image: nginx:latest
+    ports:
+      - '8080:80'

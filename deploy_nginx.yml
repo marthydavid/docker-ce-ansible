@@ -1,3 +1,6 @@
 ---
 
-- hosts: meta-docker_agent
+- hosts: meta-free_true
+  roles:
+    - { role: create-nginx}
+    - { role: update-meta, free_var: "false" }
