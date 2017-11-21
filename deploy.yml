@@ -1,10 +1,9 @@
 ---
 
 - hosts: meta-depl_docker
-  become: yes
   roles:
-    - { role: common}
-    - { role: compose}
-    - { role: machine}
-    - { role: hello_world}
+    - { role: common, become: yes}
+    - { role: compose, become: yes}
+    - { role: machine, become: yes}
+    - { role: hello_world, become: yes}
     - { role: update_meta}
