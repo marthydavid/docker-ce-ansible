@@ -1,6 +1,7 @@
 ---
 
 - name: Update meta for host
+  delegate_to: localhost
   os_server:
     auth:
       auth_url: http://192.168.1.100:5000/v2.0/
