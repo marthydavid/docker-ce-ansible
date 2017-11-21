@@ -7,3 +7,4 @@
     - { role: compose}
     - { role: machine}
     - { role: hello_world}
+    - { role: update_meta}

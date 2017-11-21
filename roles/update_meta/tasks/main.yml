@@ -1,0 +1,10 @@
+---
+
+- name: Update meta for host
+  os_server:
+    name: '{{ ansible_hostname }}'
+    image: 0ed374b2-4fde-4076-a9ed-91e180ab3694
+    meta:
+      depl: docker
+      docker: agent
+      hostname: "{{ ansible_hostname}}.marthyhome.lab"
