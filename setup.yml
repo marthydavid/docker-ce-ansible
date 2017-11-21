@@ -4,4 +4,3 @@
     - name: Setup
       setup:
         msg: "Setup module"
-

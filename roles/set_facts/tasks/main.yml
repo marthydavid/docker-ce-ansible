@@ -1,0 +1,7 @@
+---
+
+- name: gather openstack facts
+  os_server_facts:
+    server: '{{ ansible_hostname }}'
+
+- name: 
