@@ -3,3 +3,6 @@
   tasks:
     - name: Setup
       setup:
+      register: setup_reg
+    - name: debug setup things
+      debug: '{{ setup_reg }}'
