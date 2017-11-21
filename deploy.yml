@@ -3,7 +3,6 @@
 - hosts: meta-depl_docker
   become: yes
   roles:
-    - { role: set_facts}
     - { role: common}
     - { role: compose}
     - { role: machine}
