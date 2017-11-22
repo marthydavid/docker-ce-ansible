@@ -29,8 +29,6 @@
     key_name: MARTHY-T430
     wait: yes
     flavor: 8a27537c-e5d2-4430-a7be-e18ee94a8c97
-    floating_ips: 
-      - 192.168.1.206
     security_groups: default
     nics:
       - net-id: af026aac-5d4f-40aa-9e83-c451802815f6
