@@ -1,6 +1,11 @@
 ---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+  - set_fact: random_host="{{ groups['meta-free_true'] | random }}"
 
-- hosts: "{{ groups['meta-free_true'] | random }}"
+- hosts: "{{ random_host }}"
   roles:
     - { role: create-nginx}
     - { role: update_meta }
