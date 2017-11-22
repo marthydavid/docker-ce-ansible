@@ -5,7 +5,7 @@
   tasks:
   - set_fact: random_host="{{ groups['meta-free_true'] | random }}"
 
-- hosts: '{{ ansible_facts.random_host }}'
+- hosts: "{{ groups['meta-free_true'] | random }}" 
   roles:
     - { role: create-nginx}
     - { role: update_meta }
