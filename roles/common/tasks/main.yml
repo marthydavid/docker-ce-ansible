@@ -40,3 +40,5 @@
     url: https://raw.githubusercontent.com/docker/docker-ce/master/components/cli/contrib/completion/bash/docker
     dest: /etc/bash_completion.d/docker
     mode: 0644
+
+- meta: flush_handlers   
