@@ -1,6 +1,6 @@
 ---
 
-- hosts: meta-free_true
+- hosts: '{{ meta-free_true | random }}'
   roles:
     - { role: create-nginx}
     - { role: update_meta }
