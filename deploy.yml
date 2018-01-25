@@ -2,6 +2,6 @@
 
 - hosts: all
   roles:
-    - { role: common, become: yes}
-    - { role: compose, become: yes}
-    - { role: machine, become: yes}
+    - { role: docker_common, become: yes}
+    - { role: docker_compose, become: yes}
+    - { role: docker_machine, become: yes}

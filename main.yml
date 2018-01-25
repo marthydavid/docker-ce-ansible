@@ -3,7 +3,7 @@
 - hosts: all
   become: yes
   roles:
-    - { role: remove, when: remove is defined }
-    - { role: common, when: common is defined }
-    - { role: compose, when: compose is defined }
-    - { role: machine, when: machine is defined }
+    - { role: docker_remove, when: remove is defined }
+    - { role: docker_common, when: common is defined }
+    - { role: docker_compose, when: compose is defined }
+    - { role: docker_machine, when: machine is defined }
